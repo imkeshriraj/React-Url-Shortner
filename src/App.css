@@ -110,9 +110,14 @@ Header {
     width: 100%!important;
   }
 }
-@media (max-width: 370px) {
-  .ant-typography{
-    display: none;
+@media (max-width: 500px) {
+
+ .ant-layout-header{
+padding: 0 15px;
+  }
+  .logout-wrapper{
+    flex-direction: column;
+    gap: 6px!important;
   }
 }
 @media (max-width: 730px) {
