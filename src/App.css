@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #070F2B;
+}
+
+
+.loginWrapper {
+  width: 600px;
+  height: 300px;
+  border: 4px solid #535C91;
+  color: #535C91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #fff;
+
+  >div {
+    width: 100%;
+  }
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-form-item .ant-form-item-label>label {
+  color: #535C91;
+
+}
+
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-layout-header {
+  background: #535C91;
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-menu-dark {
+  background: #535C91;
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-btn-primary,
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background: #9290C3;
+  width: 340px;
+}
+
+.loginWrapper :where(.css-dev-only-do-not-override-1xg9z9n).ant-btn-primary,
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background: #9290C3;
+  width: 340px;
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-menu-dark.ant-menu-horizontal>.ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-menu-dark.ant-menu-horizontal>.ant-menu-item-selected:hover {
+  background-color: #535C91;
+}
+
+h1:where(.css-dev-only-do-not-override-1xg9z9n).ant-typography {
+  color: #9290C3
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-layout {
+  background-color: #070F2B;
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-table-wrapper .ant-table,
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-table-wrapper .ant-table-thead>tr>th {
+  background: #fff;
+  color: #9290C3
+}
+.shortUrl-result{
+  /* background: #535C91; */
+  padding: 20px;
+  margin: 20px;
+  color: #fff;
+  .ant-typography,a{
+    color: #9290C3
+  }
+  .anticon svg{
+    color: #9290C3
+  }
+}
