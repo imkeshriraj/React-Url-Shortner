@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Button, Typography, Input, Form, message, Table } from 'antd';
+import { Layout, Button, Typography, Input, Form, message, Table, Tooltip } from 'antd';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
+import QRCode from 'qrcode.react';
 const { Content, Footer } = Layout;
 const { Title } = Typography;
 
@@ -11,36 +12,50 @@ const Home = () => {
     const [shortenedUrl, setShortenedUrl] = useState('');
     const [urls, setUrls] = useState([]);
     const [loading, setLoading] = useState(false);
+    const generateQRCode = (url) => (
+        <QRCode value={url} size={70} />
+    );
+
     const columns = [
         {
             title: 'S. No.',
             dataIndex: 'serialNumber',
             key: 'serialNumber',
             render: (text, record, index) => index + 1,
-            width: '300',
+            width: 100,
         },
         {
-            title: 'Short ID',
-            dataIndex: 'shortId',
-            key: 'shortId',
+            title: 'Original Url',
+            dataIndex: 'redirectUrl',
+            key: 'redirectUrl',
+            render: text => <Tooltip title={text}><a href={text} target='_short'>{text}</a></Tooltip>,
+            ellipsis: true,
         },
         {
-            title: 'Redirect URL',
+            title: 'Short Url',
             dataIndex: 'shortId',
             key: 'redirectUrl',
-            render: text => <a href={`https://url-shortner-akn2.onrender.com/url/getShortUrl/${text}`} target='_short'>{`https://url-shortner-akn2.onrender.com/url/getShortUrl/${text}`}</a>,
-            width: '200',
+            render: text => <Tooltip key={text}><a href={`https://url-shortner-akn2.onrender.com/url/getShortUrl/${text}`} target='_short'>{`https://url-shortner-akn2.onrender.com/url/getShortUrl/${text}`}</a></Tooltip>,
+            ellipsis: true,
         },
         {
             title: 'Clicks',
             dataIndex: 'visitHistory',
             key: 'clicks',
             render: visitHistory => visitHistory.length,
+            width: 100
         },
         {
             title: 'Created At',
             dataIndex: 'createdAt',
             key: 'createdAt',
+        },
+        {
+            title: 'QR Code',
+            dataIndex: 'shortId',
+            key: 'shortId',
+            render: (text) => generateQRCode(`https://url-shortner-akn2.onrender.com/url/getShortUrl/${text}`),
+            width: 300
         },
     ];
     const handleSubmit = async (values) => {
@@ -86,12 +101,12 @@ const Home = () => {
         fetchUrls();
     }, []);
     return (
-        <Layout className="layout">
-            <Content style={{ padding: '50px', textAlign: 'center' }}>
+        <Layout className="layout" >
+            <Content style={{ padding: '50px', textAlign: 'center' }} className='home'>
                 <Title level={2}>Welcome to Our URL Shortener</Title>
                 <Form onFinish={handleSubmit} form={form} layout='vertical'>
                     <Form.Item label='original Url' name='url' rules={[{ required: true, message: 'Please enter Url' }]}>
-                        <Input placeholder='Enter Url...' size='large' />
+                        <Input placeholder='Enter Original Url...' size='large' />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" size='large'>
@@ -99,12 +114,11 @@ const Home = () => {
                         </Button>
                     </Form.Item>
                 </Form>
-                <Button onClick={handleClear} style={{ marginLeft: '10px', height: 'auto' }}>Clear</Button>
                 {shortenedUrl && (
                     <div className='shortUrl-result'>
                         <Title level={2}>Your short URL:</Title>
-                        <Title level={5} copyable color='#9290C3'>{shortenedUrl}</Title>
-                        <Link to={shortenedUrl} target='_short'>Your Short Url </Link>
+                        <Link to={shortenedUrl} target='_short'>  <Title level={5} copyable color='#9290C3'>{shortenedUrl}</Title></Link>
+                        <Button onClick={handleClear} style={{ marginLeft: '10px', height: 'auto' }}>Clear</Button>
                     </div>
                 )}
                 <div style={{ marginBottom: '4rem' }}>
@@ -113,6 +127,7 @@ const Home = () => {
                         columns={columns}
                         rowKey="_id"
                         pagination={false}
+                        scroll={{ x: true }}
                     />
                 </div>
             </Content>
