@@ -8,6 +8,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = React.useState(false);
     const handleLogin = (value) => {
+        console.log(value);
         setLoading(true);
         localStorage.setItem('auth', JSON.stringify(value));
         setTimeout(() => {
