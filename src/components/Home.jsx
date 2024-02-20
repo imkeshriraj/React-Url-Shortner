@@ -116,7 +116,7 @@ const Home = () => {
                     />
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%' }}>©2024 URL Shortener. All rights reserved.</Footer>
+            <Footer style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%' }}>©2024 URL Shortener. All rights reserved by @imkeshriraj.</Footer>
             {loading && <Loader />}
         </Layout>
     );
