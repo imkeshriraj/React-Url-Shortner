@@ -28,9 +28,15 @@ const Home = () => {
             title: 'Original Url',
             dataIndex: 'redirectUrl',
             key: 'redirectUrl',
-            render: text => <Tooltip title={text}><a href={text} target='_short'>{text}</a></Tooltip>,
+            render: text => (
+                <Tooltip title={text}>
+                    <a href={text} target='_short' style={{ display: 'inline-block', maxWidth: '160px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{text}</a>
+                </Tooltip>
+            ),
             ellipsis: true,
+            width: 200
         },
+    
         {
             title: 'Short Url',
             dataIndex: 'shortId',
