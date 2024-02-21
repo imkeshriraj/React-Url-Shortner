@@ -25,7 +25,7 @@ const Home = () => {
             width: 100,
         },
         {
-            title: 'Original Urls',
+            title: 'Original Url',
             dataIndex: 'redirectUrl',
             key: 'redirectUrl',
             render: text => (
