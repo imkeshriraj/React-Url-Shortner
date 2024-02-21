@@ -15,6 +15,11 @@ const Home = () => {
     const generateQRCode = (url) => (
         <QRCode value={url} size={70} />
     );
+    const formatDate = (dateString) =>{
+        const date = new Date(dateString);
+        const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+        return date.toLocaleString('en-US', options);
+    }
 
     const columns = [
         {
@@ -55,6 +60,7 @@ const Home = () => {
             title: 'Created At',
             dataIndex: 'createdAt',
             key: 'createdAt',
+            render: text => formatDate(text)
         },
         {
             title: 'QR Code',
@@ -112,7 +118,7 @@ const Home = () => {
             <Title level={1}>Simplify Your URLs</Title>
       <Text type="secondary" >Effortlessly create short, memorable links for your website or social media campaigns.</Text>
                 <Form onFinish={handleSubmit} form={form} layout='vertical'>
-                    <Form.Item label='original Url' name='url' rules={[{ required: true, message: 'Please enter Url' }]}>
+                    <Form.Item label='Original Url' name='url' rules={[{ required: true, message: 'Please enter Url' }]}>
                         <Input placeholder='Enter Original Url...' size='large' />
                     </Form.Item>
                     <Form.Item>
