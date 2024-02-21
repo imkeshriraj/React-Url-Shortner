@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from './Loader';
 import QRCode from 'qrcode.react';
 const { Content, Footer } = Layout;
-const { Title } = Typography;
+const { Title , Text} = Typography;
 
 const Home = () => {
     const [form] = Form.useForm();
@@ -109,7 +109,8 @@ const Home = () => {
     return (
         <Layout className="layout" >
             <Content style={{ padding: '50px', textAlign: 'center' }} className='home'>
-                <Title level={2}>Welcome to Our URL Shortener</Title>
+            <Title level={1}>Simplify Your URLs</Title>
+      <Text type="secondary" >Effortlessly create short, memorable links for your website or social media campaigns.</Text>
                 <Form onFinish={handleSubmit} form={form} layout='vertical'>
                     <Form.Item label='original Url' name='url' rules={[{ required: true, message: 'Please enter Url' }]}>
                         <Input placeholder='Enter Original Url...' size='large' />
@@ -137,7 +138,7 @@ const Home = () => {
                     />
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%' }}>©2024 URL Shortener. All rights reserved by @imkeshriraj.</Footer>
+            <Footer style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%' }}>©2024 URL Shortener. All rights reserved by <Link to='https://www.linkedin.com/in/imkeshriraj/' target='_blank'><Text strong style={{color:'blue'}} >@imkeshriraj.</Text> </Link></Footer>
             {loading && <Loader />}
         </Layout>
     );

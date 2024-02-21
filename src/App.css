@@ -3,6 +3,7 @@ body {
   padding: 0;
   background-color: #000;
 }
+
 .loginWrapper {
   width: 600px;
   height: 300px;
@@ -31,6 +32,7 @@ body {
 .ant-layout-header {
   background: #fff;
 }
+
 .loginWrapper .ant-btn-primary,
 .loginWrapper .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
   background: #000;
@@ -100,54 +102,68 @@ Header {
     gap: 20px
   }
 }
+
 @media (max-width: 1400px) {
   .logout-wrapper {
-    width: 50%!important;
+    width: 50% !important;
   }
 }
+
 @media (max-width: 688px) {
   .logout-wrapper {
-    width: 100%!important;
+    width: 100% !important;
   }
 }
+
 @media (max-width: 500px) {
 
- .ant-layout-header{
-padding: 0 15px;
+  .ant-layout-header {
+    padding: 0 15px;
   }
-  .logout-wrapper{
+
+  .logout-wrapper {
     flex-direction: column;
-    gap: 6px!important;
+    gap: 6px !important;
   }
 }
+
 @media (max-width: 730px) {
   .loginWrapper {
     width: 300px;
     height: 300px;
 
     .ant-btn-primary,
-.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-      width: 140px!important;
+    .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+      width: 140px !important;
     }
   }
 }
-.home{
-  h2.ant-typography{
+
+.home {
+  h1.ant-typography {
     color: #fff;
   }
-  .ant-form-item .ant-form-item-label >label{
+
+  .ant-typography-secondary {
     color: #fff;
   }
-  .ant-btn-primary,.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover{
+
+  .ant-form-item .ant-form-item-label>label {
+    color: #fff;
+  }
+
+  .ant-btn-primary,
+  .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
     background: #fff;
     color: #000;
     width: 300px;
   }
-  table{
-    table-layout: auto!important;
+
+  table {
+    table-layout: auto !important;
   }
 }
-[class^="ant-table"] [class^="ant-table"]{
+
+[class^="ant-table"] [class^="ant-table"] {
   background: #fff;
 }
-
